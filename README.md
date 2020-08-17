@@ -1,1 +1,3 @@
-https://www.kancloud.cn/liguojia1987/magento2/
+Slider extension for Magento 2.x
+
+GUIDE https://www.kancloud.cn/liguojia1987/magento2/
