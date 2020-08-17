@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<!-- 数据源 -->
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">qr_slider_index_listing.qr_slider_index_listing_data_source</item>
+			<item name="deps" xsi:type="string">qr_slider_index_listing.qr_slider_index_listing_data_source</item>
+		</item>
+		<item name="spinner" xsi:type="string">qr_slider_items_columns</item>
+		<item name="buttons" xsi:type="array">
+			<item name="add" xsi:type="array">
+				<item name="name" xsi:type="string">add</item>
+				<item name="label" xsi:type="string" translate="true">Add Slider</item>
+				<item name="class" xsi:type="string">primary</item>
+				<item name="url" xsi:type="string">*/*/add</item>
+			</item>
+		</item>
+	</argument>
+	<dataSource name="qr_slider_index_listing_data_source" component="Magento_Ui/js/grid/provider">
+		<settings>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<!--<aclResource>Qianrui_Slider::index</aclResource>-->
+		<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="qr_slider_index_listing_data_source">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+
+	<!-- 工具条 -->
+	<container name="listing_top">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="template" xsi:type="string">ui/grid/toolbar</item>
+			</item>
+		</argument>
+		<!-- 分页条数 -->
+		<paging name="listing_paging">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="storageConfig" xsi:type="array">
+						<item name="provider" xsi:type="string">qr_slider_index_listing.qr_slider_index_listing.listing_top.bookmarks</item>
+						<item name="namespace" xsi:type="string">current.paging</item>
+					</item>
+					<item name="selectProvider" xsi:type="string">qr_slider_index_listing.qr_slider_index_listing.qr_slider_items_columns.ids</item>
+					<item name="displayArea" xsi:type="string">bottom</item>
+					<item name="options" xsi:type="array">
+						<item name="20" xsi:type="array">
+							<item name="value" xsi:type="number">20</item>
+							<item name="label" xsi:type="string" translate="true">20</item>
+						</item>
+						<item name="30" xsi:type="array">
+							<item name="value" xsi:type="number">30</item>
+							<item name="label" xsi:type="string" translate="true">30</item>
+						</item>
+						<item name="50" xsi:type="array">
+							<item name="value" xsi:type="number">50</item>
+							<item name="label" xsi:type="string" translate="true">50</item>
+						</item>
+						<item name="100" xsi:type="array">
+							<item name="value" xsi:type="number">100</item>
+							<item name="label" xsi:type="string" translate="true">100</item>
+						</item>
+						<item name="200" xsi:type="array">
+							<item name="value" xsi:type="number">200</item>
+							<item name="label" xsi:type="string" translate="true">200</item>
+						</item>
+					</item>
+				</item>
+			</argument>
+		</paging>
+	</container>
+
+	<!-- 显示的字段 -->
+	<columns name="qr_slider_items_columns">
+		<column name="id">
+			<argument name="data" xsi:type="array">
+				<item name="js_config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+				</item>
+				<item name="config" xsi:type="array">
+					<item name="indexField" xsi:type="string">id</item>
+					<item name="filter" xsi:type="string">text</item>
+					<item name="sorting" xsi:type="string">desc</item>
+					<item name="label" xsi:type="string" translate="true">ID</item>
+				</item>
+			</argument>
+		</column>
+		<!-- 图片 -->
+		<column name="image" class="Qianrui\Slider\Ui\Component\Listing\Column\Image">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Image</item>
+				</item>
+			</argument>
+		</column>
+		<column name="title">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Title</item>
+				</item>
+			</argument>
+		</column>
+		<column name="desc">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Description</item>
+				</item>
+			</argument>
+		</column>
+		<column name="url">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Url</item>
+				</item>
+			</argument>
+		</column>
+		<column name="sort">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Sort</item>
+				</item>
+			</argument>
+		</column>
+		<!-- 激活 -->
+		<column name="active" class="Qianrui\Slider\Ui\Component\Listing\Column\Yesno">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Active</item>
+				</item>
+			</argument>
+		</column>
+		<!-- 编辑 -->
+		<actionsColumn name="actions" class="Qianrui\Slider\Ui\Component\Listing\Column\PostActions">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="resizeEnabled" xsi:type="boolean">false</item>
+					<item name="resizeDefaultWidth" xsi:type="string">10</item>
+					<item name="indexField" xsi:type="string">id</item>
+				</item>
+			</argument>
+		</actionsColumn>
+	</columns>
+</listing>

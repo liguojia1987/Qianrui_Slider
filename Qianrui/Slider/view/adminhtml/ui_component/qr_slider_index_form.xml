@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">qr_slider_index_form.qr_slider_index_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Slider</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <!-- 定义右上角的按钮 -->
+        <buttons>
+            <button name="save" class="Qianrui\Slider\Block\Adminhtml\Edit\SaveButton"/>
+            <button name="delete" class="Qianrui\Slider\Block\Adminhtml\Edit\DeleteButton"/>
+            <button name="back" class="Qianrui\Slider\Block\Adminhtml\Edit\BackButton"/>
+        </buttons>
+        <namespace>qr_slider_index_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>qr_slider_index_form.qr_slider_index_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="qr_slider_index_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="qr_slider/index/save"/>
+        </settings>
+        <dataProvider class="Qianrui\Slider\Model\Slider\DataProvider" name="qr_slider_index_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label></label>
+        </settings>
+        <field name="active" sortOrder="0" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">general</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Active</label>
+            </settings>
+        </field>
+        <field name="title" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">general</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Title</label>
+            </settings>
+        </field>
+        <field name="desc" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">general</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Description</label>
+            </settings>
+        </field>
+        <field name="url" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">general</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Url</label>
+            </settings>
+        </field>
+
+        <field name="image" sortOrder="40" formElement="fileUploader">
+            <settings>
+                <notice translate="true">Allowed file types: png, gif, jpg, jpeg.</notice>
+                <label translate="true">Image</label>
+                <componentType>fileUploader</componentType>
+            </settings>
+            <formElements>
+                <fileUploader>
+                    <settings>
+                        <placeholderType>image</placeholderType>
+                        <previewTmpl>Magento_Catalog/image-preview</previewTmpl>
+                        <uploaderConfig>
+                            <param xsi:type="string" name="url">qr_slider/index_fileUploader/save</param>
+                        </uploaderConfig>
+                    </settings>
+                </fileUploader>
+            </formElements>
+        </field>
+
+        <field name="sort" sortOrder="50" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">general</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Sort</label>
+            </settings>
+        </field>
+    </fieldset>
+</form>

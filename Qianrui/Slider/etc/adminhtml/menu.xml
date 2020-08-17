@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Magento_Backend::qianrui"
+			 title="Qianrui"
+			 translate="title"
+			 module="Magento_Backend"
+			 sortOrder="100"
+			 resource="Magento_Backend::qianrui" />
+		<add id="Magento_Backend::qianrui_slider"
+			 title="Slider"
+			 translate="title"
+			 module="Magento_Backend"
+			 sortOrder="10"
+			 parent="Magento_Backend::qianrui"
+			 resource="Magento_Backend::qianrui_slider" />
+		<add id="Qianrui_Slider::index"
+			 title="Index"
+			 module="Qianrui_Slider"
+			 sortOrder="10"
+			 parent="Magento_Backend::qianrui_slider"
+			 action="qr_slider/index/index"
+			 resource="Qianrui_Slider::index" />
+	</menu>
+</config>

@@ -1,0 +1,33 @@
+<?php
+/** @var  \Qianrui\Slider\Block\Index $block */
+$collection = $block->getCollection();
+?>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <?php foreach ($collection->getItems() as $item) :?>
+            <div class="swiper-slide">
+                <a target="_blank" href="<?php echo $item->getData('url');?>">
+                    <div>
+                        <img src="<?php echo $item->getImageUrl();?>" title="<?php echo $item->getData('title');?>" />
+                    </div>
+                </a>
+            </div>
+        <?php endforeach;?>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('Qianrui_Slider::css/swiper-bundle.css'); ?>">
+<script type="text/javascript">
+    require(['jquery','swiper-bundle'],function($,swiper) {
+        new swiper('.swiper-container', {
+            autoplay: true,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            }
+        });
+    });
+</script>

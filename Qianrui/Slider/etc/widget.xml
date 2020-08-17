@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+<widget id="qr_slider_widget" class="Qianrui\Slider\Block\Widget\Index">
+	<label translate="true">Qianrui Slider</label>
+	<description></description>
+	<parameters>
+		<parameter name="ids" xsi:type="text" visible="true" required="false" sort_order="1">
+			<label translate="true">Slider Ids. E.g. 1,2,3</label>
+		</parameter>
+		<parameter name="template" xsi:type="select" required="true" visible="false">
+			<label translate="true">Template</label>
+			<options>
+				<option name="default" value="index.phtml" selected="true">
+					<label translate="true">Template</label>
+				</option>
+			</options>
+		</parameter>
+	</parameters>
+</widget>
+</widgets>
