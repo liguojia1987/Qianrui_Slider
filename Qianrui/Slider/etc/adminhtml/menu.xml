@@ -7,6 +7,7 @@
 			 module="Magento_Backend"
 			 sortOrder="100"
 			 resource="Magento_Backend::qianrui" />
+
 		<add id="Magento_Backend::qianrui_slider"
 			 title="Slider"
 			 translate="title"
