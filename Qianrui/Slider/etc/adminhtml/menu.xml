@@ -15,6 +15,7 @@
 			 sortOrder="10"
 			 parent="Magento_Backend::qianrui"
 			 resource="Magento_Backend::qianrui_slider" />
+
 		<add id="Qianrui_Slider::index"
 			 title="Index"
 			 module="Qianrui_Slider"

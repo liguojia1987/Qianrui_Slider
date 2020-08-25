@@ -6,6 +6,8 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Disable extends \Magento\Backend\App\Action
 {
+    const ADMIN_RESOURCE =  'Qianrui_Slider::index';
+
     /**
      * @var PageFactory
      */
