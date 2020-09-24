@@ -138,13 +138,13 @@
 			</argument>
 		</column>
 		<!-- 激活 -->
-		<column name="active" class="Qianrui\Slider\Ui\Component\Listing\Column\Yesno">
-			<argument name="data" xsi:type="array">
-				<item name="config" xsi:type="array">
-					<item name="filter" xsi:type="string">text</item>
-					<item name="label" xsi:type="string" translate="true">Active</item>
-				</item>
-			</argument>
+		<column name="active" component="Magento_Ui/js/grid/columns/select">
+			<settings>
+				<filter>select</filter>
+				<options class="Magento\Config\Model\Config\Source\Yesno"/>
+				<dataType>select</dataType>
+				<label translate="true">Active</label>
+			</settings>
 		</column>
 		<!-- 编辑 -->
 		<actionsColumn name="actions" class="Qianrui\Slider\Ui\Component\Listing\Column\PostActions">
